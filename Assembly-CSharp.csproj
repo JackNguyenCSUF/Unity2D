@@ -51,11 +51,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\activate.cs" />
-     <Compile Include="Assets\bullet.cs" />
+     <Compile Include="Assets\Scripts\bullet.cs" />
+     <Compile Include="Assets\Scripts\CameraScript.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Player2.cs" />
-     <Compile Include="Assets\weapon.cs" />
+     <Compile Include="Assets\Scripts\Pulse.cs" />
+     <Compile Include="Assets\Scripts\weapon.cs" />
  <Reference Include="UnityEngine.CoreModule">
  <HintPath>/opt/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
  </Reference>
