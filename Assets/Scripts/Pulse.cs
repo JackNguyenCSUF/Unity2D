@@ -5,6 +5,7 @@ using UnityEngine;
 public class Pulse : MonoBehaviour {
 	
 	public float PulseRadius;
+	public float pulseSpeed;
 
 
 	// Use this for initialization
@@ -14,7 +15,7 @@ public class Pulse : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		float newScale = Mathf.Lerp(0.01f,PulseRadius,Time.deltaTime / 20);
+		float newScale = Mathf.Lerp(pulseSpeed,PulseRadius,Time.deltaTime / 10);
 		transform.localScale += new Vector3(newScale,newScale,1);
 
 		if(transform.localScale.x > PulseRadius)
