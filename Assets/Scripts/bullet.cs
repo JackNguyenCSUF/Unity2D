@@ -15,14 +15,9 @@ public class bullet : MonoBehaviour {
 
 	void Update(){
 		timeLeft -= Time.deltaTime;
-		//Debug.Log("timeLeft" + timeLeft);
-
+		
 		if(timeLeft <= 0)
 		{
-			if(GameObject.Find("flare 1(Clone)"))
-			{
-				Debug.Log("found flare");
-			}
 
 			GameObject ball = GameObject.Find("ball");
 			weapon wp = ball.GetComponent<weapon>();
@@ -34,11 +29,17 @@ public class bullet : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D hitInfo)
 	{
-		//Debug.Log(hitInfo.name);
-
-		rb.velocity = Vector3.zero;
-		//Destroy(gameObject);
+		//Debug.Log(hitInfo);
+		if(hitInfo.name == "diamond" || hitInfo.name == "flare 1(Clone)")
+		{
+			//rb.velocity = Vector3.zero;
+		}	
+		else
+		{
+			rb.velocity = Vector3.zero;
+		}
 	}
+		
 
 
 }

@@ -8,7 +8,6 @@ public class Player : MonoBehaviour {
 
 	public float speed = 0.1f;
 	private Rigidbody2D rb2d;
-	private Vector2 moveVelocity;
 	public float velocityx;
 	public float velocityy;
 	
@@ -26,8 +25,7 @@ public class Player : MonoBehaviour {
 		velocityy = Input.GetAxis("Vertical") * speed;
 
 		Vector2 moveVector = new Vector2(velocityx,velocityy);
-		moveVelocity = moveVector.normalized * speed;
-
+		
 		rb2d.velocity = moveVector;
 
 		//if(moveVector.x >= speed && moveVector.y >= speed)
