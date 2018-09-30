@@ -16,6 +16,7 @@ public class bullet : MonoBehaviour {
 	void Update(){
 		timeLeft -= Time.deltaTime;
 		
+		//start the 5 second countdown for each individual bullet fired, after 5 seconds object will be destroyed.
 		if(timeLeft <= 0)
 		{
 
@@ -29,15 +30,17 @@ public class bullet : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D hitInfo)
 	{
-		//Debug.Log(hitInfo);
-		if(hitInfo.name == "diamond" || hitInfo.name == "flare 1(Clone)")
+		if(hitInfo.name == "beacon" || hitInfo.name == "flamegun" || hitInfo.name == "shield" || hitInfo.name == "landmine" || hitInfo.name == "flare 1(Clone)")
 		{
-			//rb.velocity = Vector3.zero;
+			//if bullets collides with items or other bullets, let it pass through
 		}	
 		else
 		{
+			//if it hits an object set bullet speed to 0
 			rb.velocity = Vector3.zero;
 		}
+
+		Debug.Log(hitInfo);
 	}
 		
 
