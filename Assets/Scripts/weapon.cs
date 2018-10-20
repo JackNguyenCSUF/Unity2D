@@ -13,11 +13,7 @@ public class weapon : MonoBehaviour {
 		if(Input.GetButtonDown("Fire1"))
 		{
 			Debug.Log(numberBullets);
-			if(numberBullets <= 0)
-			{
-				//cannot shoot until refresh flares
-			}
-			else
+			if(numberBullets > 0)
 			{
 				shoot();
 			}
@@ -30,7 +26,6 @@ public class weapon : MonoBehaviour {
 		//shooting logic
 		numberBullets -= 1;
 		Instantiate(flarePrefab,firePoint.position,firePoint.rotation);
-		//Debug.Log("Fire");
-
+		
 	}
 }
