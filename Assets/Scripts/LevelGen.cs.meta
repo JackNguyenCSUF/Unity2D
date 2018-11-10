@@ -3,7 +3,10 @@ guid: 59b8d0b7b18a2f641b314e84ebe8bdfd
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - tile: {fileID: 4698034508012772, guid: 686fdf4dc88e54e23b0d54f0b2f7a517, type: 2}
+  - obstacle: {fileID: 4103609064249350, guid: 894312f1f1169465587015062b8b3595, type: 2}
+  - player1: {fileID: 1530352085007096, guid: 546fbce85ef684341b55cd74b05dd2eb, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

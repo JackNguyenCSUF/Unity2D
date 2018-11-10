@@ -5,10 +5,11 @@ using UnityEngine;
 public class LevelGen : MonoBehaviour {
     public Transform tile;
     public Transform obstacle;
-    public int xsize = 16;
-    public int ysize = 16;
+    public int xsize = 8;
+    public int ysize = 8;
     [Range(0,1)]
     public float obstaclePercent;
+    //private bool player1Spawned = false;
 
     public struct pos
     {
@@ -55,23 +56,65 @@ public class LevelGen : MonoBehaviour {
             levelMap[temp.x, temp.y] = 1;
             obstacleCount--;
         }
+
+        //add item position to map
+        //1 = obstacle, 2 = beacon, 3 = shield, 4 = flamegun, 5 = landmine, 6 = player1(ball)
+        for (int i = 2; i < 7; i++)
+        {
+            pos temp = obstacleOrder.Pop();
+            levelMap[temp.x, temp.y] = i;
+        }
         
         //generate tiles
-        Transform newTile;
         for (int y= 0; y<ysize; y++)
         {
             for (int x = 0; x < xsize; x++)
             {
                 //new position needs work, just random code right now
-                Vector3 newPos = new Vector3((-xsize/2) + x, (-ysize/2) + y, 0);
+                Vector3 newPos = new Vector3((xsize / 2) + x, (ysize / 2) + y, 0);
                 //if (Random.Range(0, 4) == 3 && obstacleCount > 0)
                 if(levelMap[x,y] == 1)
                 {
-                    newTile = Instantiate(obstacle, newPos, Quaternion.identity) as Transform;
+                    Instantiate(obstacle, newPos, Quaternion.identity);
                 }
                 else
                 {
-                    newTile = Instantiate(tile, newPos, Quaternion.identity) as Transform;
+                    Instantiate(tile, newPos, Quaternion.identity);
+                    
+                    /*
+                    if (!player1Spawned)
+                    {   
+                        //move player to open tile
+                        GameObject ball = GameObject.Find("ball");
+                        ball.transform.position = newPos;
+                        player1Spawned = true;
+                    }
+                    */
+                    switch (levelMap[x, y])
+                    {
+                        case 2:
+                            GameObject beacon = GameObject.Find("beacon");
+                            beacon.transform.position = newPos;
+                            break;
+                        case 3:
+                            GameObject shield = GameObject.Find("shield");
+                            shield.transform.position = newPos;
+                            break;
+                        case 4:
+                            GameObject flamegun = GameObject.Find("flamegun");
+                            flamegun.transform.position = newPos;
+                            break;
+                        case 5:
+                            GameObject landmine = GameObject.Find("landmine");
+                            landmine.transform.position = newPos;
+                            break;
+                        case 6:
+                            GameObject ball = GameObject.Find("ball");
+                            ball.transform.position = newPos;
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
         }
@@ -79,28 +122,29 @@ public class LevelGen : MonoBehaviour {
     }
 
     void DrawWall()
-    {
-        Vector3 newPos = new Vector3((-xsize / 2) -1, (-ysize / 2) - 1, 0);
-        Transform wall;
+    {   //draw walls surrounding the map
+        Vector3 newPos = new Vector3((xsize / 2) -1, (ysize / 2) - 1, 0);
+
         for (int x = 0; x < xsize + 2; x++)
         {
             //bottom wall
-            newPos = new Vector3((-xsize / 2) -1 + x, (-ysize / 2) - 1, 0);
-            wall = Instantiate(obstacle, newPos, Quaternion.identity) as Transform;
+            newPos = new Vector3((xsize / 2) -1 + x, (ysize / 2) - 1, 0);
+            Instantiate(obstacle, newPos, Quaternion.identity);
             //top wall
-            newPos = new Vector3((-xsize / 2) - 1 + x, (-ysize / 2)  + ysize, 0);
-            wall = Instantiate(obstacle, newPos, Quaternion.identity) as Transform;
+            newPos = new Vector3((xsize / 2) - 1 + x, (ysize / 2)  + ysize, 0);
+            Instantiate(obstacle, newPos, Quaternion.identity);
         }
         for (int y = 0; y < ysize; y++)
         {
             //left wall
-            newPos = new Vector3((-xsize / 2) - 1, (-ysize / 2) + y , 0);
-            wall = Instantiate(obstacle, newPos, Quaternion.identity) as Transform;
+            newPos = new Vector3((xsize / 2) - 1, (ysize / 2) + y , 0);
+            Instantiate(obstacle, newPos, Quaternion.identity);
             //right wall
-            newPos = new Vector3((-xsize / 2) + xsize, (-ysize / 2) + y, 0);
-            wall = Instantiate(obstacle, newPos, Quaternion.identity) as Transform;
+            newPos = new Vector3((xsize / 2) + xsize, (ysize / 2) + y, 0);
+            Instantiate(obstacle, newPos, Quaternion.identity);
         }
     }
+
 
 	// Update is called once per frame
 	void Update () {
