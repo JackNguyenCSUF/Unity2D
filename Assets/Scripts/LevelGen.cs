@@ -59,12 +59,13 @@ public class LevelGen : MonoBehaviour {
 
         //add item position to map
         //1 = obstacle, 2 = beacon, 3 = shield, 4 = flamegun, 5 = landmine, 6 = player1(ball)
-        for (int i = 2; i < 7; i++)
-        {
-            pos temp = obstacleOrder.Pop();
-            levelMap[temp.x, temp.y] = i;
-        }
-        
+		if (obstacleOrder.Count != 0) {
+			for (int i = 2; i < 7; i++) {
+				pos temp = obstacleOrder.Pop ();
+				levelMap [temp.x, temp.y] = i;
+			}
+		}
+
         //generate tiles
         for (int y= 0; y<ysize; y++)
         {
