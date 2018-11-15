@@ -7,7 +7,7 @@ public class LevelGen : MonoBehaviour {
     public Transform obstacle;
     public int xsize = 8;
     public int ysize = 8;
-    [Range(0,1)]
+    [Range(0,0.3f)] //range for obstaclePercent slider, 0 to 30%
     public float obstaclePercent;
     //private bool player1Spawned = false;
 
@@ -58,13 +58,15 @@ public class LevelGen : MonoBehaviour {
         }
 
         //add item position to map
-        //1 = obstacle, 2 = beacon, 3 = shield, 4 = flamegun, 5 = landmine, 6 = player1(ball)
-		if (obstacleOrder.Count != 0) {
-			for (int i = 2; i < 7; i++) {
-				pos temp = obstacleOrder.Pop ();
-				levelMap [temp.x, temp.y] = i;
-			}
+        //1 = obstacle, 2 = beacon, 3 = shield, 4 = flamegun, 5 = landmine, 6 = player1(ball), 7 = player2
+	int itemCount = 7;
+	//if this part fail to work, remove the second condition, it isn't needed if obstaclePercent [Range(0,0.3f)] works
+	if (obstacleOrder.Count != 0 && (obstacleOrder.Count - itemCount) > 0) {
+		for (int i = 2; i <= itemCount; i++) {
+			pos temp = obstacleOrder.Pop ();
+			levelMap [temp.x, temp.y] = i;
 		}
+	}
 
         //generate tiles
         for (int y= 0; y<ysize; y++)
@@ -111,6 +113,10 @@ public class LevelGen : MonoBehaviour {
                             break;
                         case 6:
                             GameObject ball = GameObject.Find("ball");
+                            ball.transform.position = newPos;
+                            break;
+			case 7:
+                            GameObject ball = GameObject.Find("ball2"); //change to correct player2 GameObject
                             ball.transform.position = newPos;
                             break;
                         default:
