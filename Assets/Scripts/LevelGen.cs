@@ -5,8 +5,8 @@ using UnityEngine;
 public class LevelGen : MonoBehaviour {
     public Transform tile;
     public Transform obstacle;
-    public int xsize = 8;
-    public int ysize = 8;
+    public int xsize = 16;
+    public int ysize = 16;
     [Range(0,0.3f)] //range for obstaclePercent slider, 0 to 30%
     public float obstaclePercent;
     //private bool player1Spawned = false;
@@ -120,10 +120,6 @@ public class LevelGen : MonoBehaviour {
                         case 7:
                             GameObject player2 = GameObject.Find("player2");
                             player2.transform.position = newPos;
-                            break;
-			case 7:
-                            GameObject ball = GameObject.Find("ball2"); //change to correct player2 GameObject
-                            ball.transform.position = newPos;
                             break;
                         default:
                             break;
