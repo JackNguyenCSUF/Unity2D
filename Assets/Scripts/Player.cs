@@ -10,6 +10,7 @@ public class Player : MonoBehaviour {
 	private Rigidbody2D rb2d;
 	public float velocityx;
 	public float velocityy;
+	public int health;
 
 	//create a list for storing items the player picks up
 	public List<String> inventory;
@@ -26,8 +27,8 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		velocityx = Input.GetAxis("Horizontal") * speed;
-		velocityy = Input.GetAxis("Vertical") * speed;
+		velocityx = Input.GetAxis("p1_Horizontal") * speed;
+		velocityy = Input.GetAxis("p1_Vertical") * speed;
 
 		Vector2 moveVector = new Vector2(velocityx,velocityy);
 		
@@ -38,6 +39,8 @@ public class Player : MonoBehaviour {
 
 		if(inventory.Count > 0)
 		{
+			Debug.Log("test inventory item");
+			Debug.Log(inventory.Count);
 			activateItem(inventory[0]);		
 		}
 		
@@ -51,8 +54,15 @@ public class Player : MonoBehaviour {
 			GameObject go = Instantiate (item[0],rb2d.position, Quaternion.identity);
 	  		go.transform.parent = gameObject.transform;
 		}
-		
+
 		//need to finish code to activate other items
+		if(name == "shield"){
+			GameObject go = Instantiate (item[1],rb2d.position,Quaternion.identity);
+			go.transform.parent = gameObject.transform;
+			go.transform.localScale += new Vector3(0.3f, 0.3f, 0);
+			
+		}
+		
 		
 		inventory.RemoveAt(0);		
 	}

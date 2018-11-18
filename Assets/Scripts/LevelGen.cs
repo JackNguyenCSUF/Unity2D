@@ -58,9 +58,9 @@ public class LevelGen : MonoBehaviour {
         }
 
         //add item position to map
-        //1 = obstacle, 2 = beacon, 3 = shield, 4 = flamegun, 5 = landmine, 6 = player1(ball)
+        //1 = obstacle, 2 = beacon, 3 = shield, 4 = flamegun, 5 = landmine, 6 = player1(player1)
 		if (obstacleOrder.Count != 0) {
-			for (int i = 2; i < 7; i++) {
+			for (int i = 2; i < 8; i++) {
 				pos temp = obstacleOrder.Pop ();
 				levelMap [temp.x, temp.y] = i;
 			}
@@ -86,14 +86,15 @@ public class LevelGen : MonoBehaviour {
                     if (!player1Spawned)
                     {   
                         //move player to open tile
-                        GameObject ball = GameObject.Find("ball");
-                        ball.transform.position = newPos;
+                        GameObject player1 = GameObject.Find("player1");
+                        player1.transform.position = newPos;
                         player1Spawned = true;
                     }
                     */
                     switch (levelMap[x, y])
                     {
                         case 2:
+                            Debug.Log(levelMap[x,y]);
                             GameObject beacon = GameObject.Find("beacon");
                             beacon.transform.position = newPos;
                             break;
@@ -110,8 +111,12 @@ public class LevelGen : MonoBehaviour {
                             landmine.transform.position = newPos;
                             break;
                         case 6:
-                            GameObject ball = GameObject.Find("ball");
-                            ball.transform.position = newPos;
+                            GameObject player1 = GameObject.Find("player1");
+                            player1.transform.position = newPos;
+                            break;
+                        case 7:
+                            GameObject player2 = GameObject.Find("player2");
+                            player2.transform.position = newPos;
                             break;
                         default:
                             break;

@@ -7,7 +7,6 @@ public class Pulse : MonoBehaviour {
 	public float PulseRadius;
 	public float pulseSpeed;
 
-
 	// Use this for initialization
 	void Start () {
 		

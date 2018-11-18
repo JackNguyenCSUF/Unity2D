@@ -20,8 +20,8 @@ public class bullet : MonoBehaviour {
 		if(timeLeft <= 0)
 		{
 
-			GameObject ball = GameObject.Find("ball");
-			weapon wp = ball.GetComponent<weapon>();
+			GameObject player1 = GameObject.Find("player1");
+			weapon wp = player1.GetComponent<weapon>();
 			wp.numberBullets += 1;
 
 			Destroy(gameObject);
