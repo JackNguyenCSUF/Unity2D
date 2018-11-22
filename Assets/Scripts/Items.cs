@@ -38,8 +38,8 @@ public class Items : MonoBehaviour {
 	//when something collides with the item execute this.
 	void OnTriggerEnter2D(Collider2D hitInfo)
 	{
-		Debug.Log(hitInfo.name);
-		if(hitInfo.name == "player1" /* change this code to detect both player1 and player2*/)
+		//Debug.Log(hitInfo.name);
+		if(hitInfo.name == "player1" || hitInfo.name == "player2" /* change this code to detect both player1 and player2*/)
 		{
 			//reference the player and add the item to his inventory list.
 			player = GameObject.Find(hitInfo.name);

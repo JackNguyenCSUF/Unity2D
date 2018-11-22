@@ -5,6 +5,10 @@ using UnityEngine;
 public class LevelGen : MonoBehaviour {
     public Transform tile;
     public Transform obstacle;
+
+    public GameObject shieldPrefab;
+    public GameObject minePrefab;
+    
     public int xsize = 16;
     public int ysize = 16;
     [Range(0,0.3f)] //range for obstaclePercent slider, 0 to 30%
@@ -98,16 +102,16 @@ public class LevelGen : MonoBehaviour {
                     {
                         case 2:
                             Debug.Log(levelMap[x,y]);
-                            GameObject beacon = GameObject.Find("beacon");
-                            beacon.transform.position = newPos;
+                            //GameObject beacon = GameObject.Find("beacon");
+                            //beacon.transform.position = newPos;
                             break;
                         case 3:
                             GameObject shield = GameObject.Find("shield");
                             shield.transform.position = newPos;
                             break;
                         case 4:
-                            GameObject flamegun = GameObject.Find("flamegun");
-                            flamegun.transform.position = newPos;
+                            //GameObject flamegun = GameObject.Find("flamegun");
+                            //flamegun.transform.position = newPos;
                             break;
                         case 5:
                             GameObject landmine = GameObject.Find("landmine");
@@ -157,6 +161,7 @@ public class LevelGen : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+        //Debug.Log("respawn items");
 		
 	}
 }

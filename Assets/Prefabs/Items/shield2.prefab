@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4182365836721932}
   - component: {fileID: 212146378979929656}
   - component: {fileID: 114399580969506714}
+  - component: {fileID: 58207183814832096}
+  - component: {fileID: 114566875013753614}
   m_Layer: 0
   m_Name: shield2
   m_TagString: Untagged
@@ -41,6 +43,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &58207183814832096
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1301979536311220}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.6
 --- !u!114 &114399580969506714
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -54,6 +71,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 1301979536311220}
   rotationSpeed: 5
+--- !u!114 &114566875013753614
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1301979536311220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c49a6c7236e709d4ebaf01f78f42e2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212146378979929656
 SpriteRenderer:
   m_ObjectHideFlags: 1
