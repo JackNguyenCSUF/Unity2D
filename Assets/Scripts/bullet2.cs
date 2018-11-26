@@ -45,7 +45,7 @@ public class bullet2 : MonoBehaviour {
 	{	
 		//Debug.Log(hitInfo.name);
 
-		if(hitInfo.name == "beacon" || hitInfo.name == "flamegun" || hitInfo.name == "shield" || hitInfo.name == "landmine" || hitInfo.name == "newFlare(Clone)")
+		if(hitInfo.name == "beacon" || hitInfo.name == "flamegun" || hitInfo.name == "shield" || hitInfo.name == "landmine" || hitInfo.name == "newFlare(Clone)" || hitInfo.name == "newFlare 1(Clone)")
 		{
 			//if bullets collides with items or other bullets, let it pass through
 		}	
