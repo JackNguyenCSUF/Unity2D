@@ -64,6 +64,7 @@
      <Compile Include="Assets\explosion.cs" />
      <Compile Include="Assets\fireExplosionContact.cs" />
      <Compile Include="Assets\firepoint.cs" />
+     <Compile Include="Assets\GlobalMenuSettings.cs" />
      <Compile Include="Assets\Light2D\Scripts\CustomSprite.cs" />
      <Compile Include="Assets\Light2D\Scripts\LightingSystem.cs" />
      <Compile Include="Assets\Light2D\Scripts\LightingSystemPrefabConfig.cs" />
@@ -75,6 +76,7 @@
      <Compile Include="Assets\Light2D\Scripts\Point2.cs" />
      <Compile Include="Assets\Light2D\Scripts\Util.cs" />
      <Compile Include="Assets\mine.cs" />
+     <Compile Include="Assets\PauseMenu.cs" />
      <Compile Include="Assets\Prefabs\Items\rotate.cs" />
      <Compile Include="Assets\Score.cs" />
      <Compile Include="Assets\Scripts\bullet.cs" />
@@ -90,6 +92,7 @@
      <Compile Include="Assets\Scripts\weapon.cs" />
      <Compile Include="Assets\shieldDestroy.cs" />
      <Compile Include="Assets\SpriteText.cs" />
+     <Compile Include="Assets\UIManager.cs" />
      <None Include="Assets\Light2D\Resources\Shaders\FastBlur.shader" />
      <None Include="Assets\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
      <None Include="Assets\Light2D\Resources\Shaders\Light70.shader" />

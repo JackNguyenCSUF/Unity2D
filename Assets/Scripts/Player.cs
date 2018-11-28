@@ -19,6 +19,8 @@ public class Player : MonoBehaviour {
 
 	public int score = 0;
 
+	public int lives;
+
 	public bool shield = false;
 
 	//create a list for storing items the player picks up
@@ -31,6 +33,17 @@ public class Player : MonoBehaviour {
 		rb2d = GetComponent<Rigidbody2D>();
 		inventory = new List<String>();
 		//Physics2D.gravity = Vector2.zero;
+
+		GameObject[] objs = GameObject.FindGameObjectsWithTag("globalSettings");
+        GlobalMenuSettings settings = objs[0].GetComponent<GlobalMenuSettings>();
+		Debug.Log("start weapon");
+
+		weapon playerWeapon = player.GetComponent<weapon>();
+		playerWeapon.numberBullets = settings.bullets;
+
+		lives = settings.player_lives;
+	
+
 	}
 	 
 	// Update is called once per frame

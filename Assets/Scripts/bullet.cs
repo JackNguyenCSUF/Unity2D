@@ -31,8 +31,10 @@ public class bullet : MonoBehaviour {
 			GameObject player1 = GameObject.Find("player1");
 			weapon wp = player1.GetComponent<weapon>();
 
+			GameObject[] objs = GameObject.FindGameObjectsWithTag("globalSettings");
+        	GlobalMenuSettings settings = objs[0].GetComponent<GlobalMenuSettings>();
 						
-			if(wp.numberBullets < 3){
+			if(wp.numberBullets < settings.bullets){
 				wp.numberBullets += 1;
 			
 			}
@@ -61,7 +63,11 @@ public class bullet : MonoBehaviour {
 			Destroy(gameObject);
 			GameObject player1 = GameObject.Find("player1");
 			weapon wp = player1.GetComponent<weapon>();
-			if(wp.numberBullets < 3){
+
+			GameObject[] objs = GameObject.FindGameObjectsWithTag("globalSettings");
+        	GlobalMenuSettings settings = objs[0].GetComponent<GlobalMenuSettings>();
+
+			if(wp.numberBullets < settings.bullets){
 				wp.numberBullets += 1;
 			}
 			

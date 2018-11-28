@@ -13,9 +13,9 @@ public class weapon : MonoBehaviour {
 
 	public GameObject player;
 
-	public int numberBullets = 3;
-	public int numberMines = 3;
-		
+	public int numberBullets;
+	public int numberMines;
+	
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetButtonDown("p1_Fire1") && flarePrefab.name == "newFlare")
