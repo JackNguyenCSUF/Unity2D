@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EmptySpace : MonoBehaviour {
 
-	public float waitTimeShield = 10f;
-	public float waitTimeLandmine = 20f;
+	public float waitTimeShield = 5f;
+	public float waitTimeLandmine = 10f;
 
 	public GameObject shieldItem;
 

@@ -67,5 +67,13 @@ public class weapon : MonoBehaviour {
 		numberBullets -= 1;
 		Instantiate(flarePrefab,firePoint.position,firePoint.rotation);
 
+
+		//Debug.Log(player.transform.rotation.z);
+		//Debug.Log(player.transform.eulerAngles.z);
+		//Instantiate(flarePrefab,firePoint.position,firePoint.rotation);
+		//Instantiate(flarePrefab,firePoint.position,Quaternion.Euler(new Vector3(player.transform.eulerAngles.z, 90, 0)));
+		//Instantiate (flarePrefab, firePoint.position, Quaternion.Euler(new Vector3(90, 90, 0)));
+
+
 	}
 }
