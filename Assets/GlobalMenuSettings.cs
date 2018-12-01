@@ -10,6 +10,8 @@ public class GlobalMenuSettings : MonoBehaviour {
 
 	public int bullets = 3;
 
+	public int level = 1;
+
 	void Awake()
     {
 		GameObject[] objs = GameObject.FindGameObjectsWithTag("globalSettings");

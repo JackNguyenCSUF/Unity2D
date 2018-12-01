@@ -36,8 +36,7 @@ public class Player : MonoBehaviour {
 
 		GameObject[] objs = GameObject.FindGameObjectsWithTag("globalSettings");
         GlobalMenuSettings settings = objs[0].GetComponent<GlobalMenuSettings>();
-		Debug.Log("start weapon");
-
+		
 		weapon playerWeapon = player.GetComponent<weapon>();
 		playerWeapon.numberBullets = settings.bullets;
 
@@ -79,21 +78,21 @@ public class Player : MonoBehaviour {
 	void activateItem(String name,Vector2 moveVector){
 		
 		//activate beacon on character
-		if(name == "beacon")
+		if(name == "beacon" || name == "beacon(Clone)")
 		{
 			go = Instantiate (item[0],rb2d.position, Quaternion.identity);
 	  		go.transform.parent = gameObject.transform;
 		}
 
 		//need to finish code to activate other items
-		if(name == "shield"){
+		if(name == "shield" || name == "shield(Clone)"){
 			GameObject go = Instantiate (item[1],rb2d.position,Quaternion.identity);
 			go.transform.parent = gameObject.transform;
 			go.transform.localScale += new Vector3(0.3f, 0.3f, 0);
 			shield = true;
 			
 		}
-		if(name == "landmine"){
+		if(name == "landmine" || name == "landmine(Clone)"){
 
 			weapon playerWeapon = player.GetComponent<weapon>();
 			playerWeapon.numberMines += 3;		
@@ -114,5 +113,40 @@ public class Player : MonoBehaviour {
 			transform.rotation = Quaternion.LookRotation(Vector3.forward,moveVector);
 		}
 		
+	}
+
+	//handle all player collisions with other game objects
+	void OnTriggerEnter2D(Collider2D hitInfo)
+	{	
+		if(hitInfo.name == "Fire" || hitInfo.name == "Fire(Clone)"){
+			//fire from explosion has made contact with player, reduce health.
+			if(!shield)
+			{
+				health -= 0.3f;
+			}
+			else if(shield){
+				shield = false;
+			}
+			
+		}
+
+		//inflict damage of flare on corresponding player
+		//prevent players own flare from doing damage to himself.
+		if((hitInfo.name == "newFlare 1(Clone)" && player.name == "player1" ) || (hitInfo.name == "newFlare(Clone)" && player.name == "player2")  ){
+			//do damage to player2
+			if(shield == false){
+				health -= 0.20f;
+			}
+			else if(shield){
+				shield = false;
+			}
+		}
+		
+		//when player health reaches 0 refresh health and reduce lives
+		if(health <= 0 && lives >0){
+				
+				lives -= 1;
+				health = 1f;		
+		}		
 	}
 }

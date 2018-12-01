@@ -101,21 +101,21 @@ public class LevelGen : MonoBehaviour {
                     switch (levelMap[x, y])
                     {
                         case 2:
-                            Debug.Log(levelMap[x,y]);
+                            //Debug.Log(levelMap[x,y]);
                             //GameObject beacon = GameObject.Find("beacon");
                             //beacon.transform.position = newPos;
                             break;
                         case 3:
-                            GameObject shield = GameObject.Find("shield");
-                            shield.transform.position = newPos;
+                            //GameObject shield = GameObject.Find("shield");
+                            //shield.transform.position = newPos;
                             break;
                         case 4:
                             //GameObject flamegun = GameObject.Find("flamegun");
                             //flamegun.transform.position = newPos;
                             break;
                         case 5:
-                            GameObject landmine = GameObject.Find("landmine");
-                            landmine.transform.position = newPos;
+                            //GameObject landmine = GameObject.Find("landmine");
+                            //landmine.transform.position = newPos;
                             break;
                         case 6:
                             GameObject player1 = GameObject.Find("player1");

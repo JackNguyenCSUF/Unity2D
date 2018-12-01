@@ -61,6 +61,8 @@
      <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
      <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
      <Compile Include="Assets\EffectExamples\TutorialInfo\Scripts\Readme.cs" />
+     <Compile Include="Assets\EmptySpace.cs" />
+     <Compile Include="Assets\Enemy.cs" />
      <Compile Include="Assets\explosion.cs" />
      <Compile Include="Assets\fireExplosionContact.cs" />
      <Compile Include="Assets\firepoint.cs" />

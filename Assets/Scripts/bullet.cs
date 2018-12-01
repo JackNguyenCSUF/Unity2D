@@ -47,7 +47,7 @@ public class bullet : MonoBehaviour {
 	{	
 		//Debug.Log(hitInfo.name);
 
-		if(hitInfo.name == "beacon" || hitInfo.name == "flamegun" || hitInfo.name == "shield" || hitInfo.name == "landmine" || hitInfo.name == "newFlare(Clone)")
+		if(hitInfo.name == "beacon" || hitInfo.name == "flamegun" || hitInfo.name == "shield" || hitInfo.name == "landmine" || hitInfo.name == "newFlare(Clone)" || hitInfo.name == "newFlare 1(Clone)")
 		{
 			//if bullets collides with items or other bullets, let it pass through
 		}	
@@ -72,29 +72,5 @@ public class bullet : MonoBehaviour {
 			}
 			
 		}
-
-		if(hitInfo.name == "player2"){
-			GameObject player2 = GameObject.Find("player2");
-
-			Player player2Stats = player2.GetComponent<Player>();
-
-			if(player2Stats.shield == false){
-				player2Stats.health -= 0.1f;
-			}
-			
-			if(player2Stats.health <= 0){
-				player2Stats.health = 1f;
-
-				//increase player 1 score
-				GameObject player1 = GameObject.Find("player1");
-				Player player1Stats = player1.GetComponent<Player>();
-				player1Stats.score += 1;
-
-			}
-
-			
-			
-		}
-		
 	}
 }

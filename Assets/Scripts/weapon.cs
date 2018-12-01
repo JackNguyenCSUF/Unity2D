@@ -27,7 +27,7 @@ public class weapon : MonoBehaviour {
 			}
 		}
 
-		if(Input.GetButtonDown("p1_Fire2") && minePrefab.name == "mine")
+		if(Input.GetButtonDown("p1_Fire2") && minePrefab.name == "mine" )
 		{
 			//Debug.Log(numberMines);
 			if(numberMines > 0){
@@ -66,5 +66,6 @@ public class weapon : MonoBehaviour {
 		//shooting logic
 		numberBullets -= 1;
 		Instantiate(flarePrefab,firePoint.position,firePoint.rotation);
+
 	}
 }

@@ -19,9 +19,9 @@ public class Score : MonoBehaviour {
         var text = GetComponent<TextMesh>();
         var pos = spriteTransform.position;
 
-		Player score = player.GetComponent<Player>();
+		Player lives = player.GetComponent<Player>();
 
-        text.text = string.Format("{0}, {1}", "Score: ",score.score);
+        text.text = string.Format("{0}, {1}", "Lives: ",lives.lives);
      }
 	// Update is called once per frame
 	void Update () {
@@ -37,8 +37,8 @@ public class Score : MonoBehaviour {
         var text = GetComponent<TextMesh>();
         var pos = spriteTransform.position;
 
-		Player score = player.GetComponent<Player>();
+		Player lives = player.GetComponent<Player>();
 
-        text.text = string.Format("{0}", "Wins: " + score.score);
+        text.text = string.Format("{0}", "Lives: " + lives.lives);
 	}
 }

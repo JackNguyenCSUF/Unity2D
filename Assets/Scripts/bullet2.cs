@@ -73,29 +73,6 @@ public class bullet2 : MonoBehaviour {
 			}
 			
 			
-		}
-
-		if(hitInfo.name == "player1"){
-			GameObject player1 = GameObject.Find("player1");
-			Player player1Stats = player1.GetComponent<Player>();
-			
-			if(player1Stats.shield == false){
-				player1Stats.health -= 0.1f;
-			}
-			else if(player1Stats.shield){
-				player1Stats.shield = false;
-			}
-
-			if(player1Stats.health <= 0){
-				player1Stats.health = 1f;
-				
-				//increase player 1 score
-				GameObject player2 = GameObject.Find("player2");
-				Player player2Stats = player2.GetComponent<Player>();
-				player2Stats.score += 1;
-
-			}
-			
 		}		
 	}
 }

@@ -27,8 +27,8 @@ InputManager:
     descriptiveNegativeName: 
     negativeButton: down
     positiveButton: up
-    altNegativeButton: s
-    altPositiveButton: w
+    altNegativeButton: w
+    altPositiveButton: s
     gravity: 0
     dead: 0.19
     sensitivity: 1
@@ -214,7 +214,7 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Fire3
+    m_Name: p2_Fire3
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
