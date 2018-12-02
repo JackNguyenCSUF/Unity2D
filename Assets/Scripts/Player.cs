@@ -118,6 +118,9 @@ public class Player : MonoBehaviour {
 	//handle all player collisions with other game objects
 	void OnTriggerEnter2D(Collider2D hitInfo)
 	{	
+		Debug.Log(hitInfo.name);
+
+
 		if(hitInfo.name == "Fire" || hitInfo.name == "Fire(Clone)"){
 			//fire from explosion has made contact with player, reduce health.
 			if(!shield)
@@ -148,5 +151,7 @@ public class Player : MonoBehaviour {
 				lives -= 1;
 				health = 1f;		
 		}		
+
+		
 	}
 }

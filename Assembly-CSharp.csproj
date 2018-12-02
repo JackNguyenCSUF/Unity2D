@@ -95,6 +95,7 @@
      <Compile Include="Assets\shieldDestroy.cs" />
      <Compile Include="Assets\SpriteText.cs" />
      <Compile Include="Assets\UIManager.cs" />
+     <Compile Include="Assets\Warhead.cs" />
      <None Include="Assets\Light2D\Resources\Shaders\FastBlur.shader" />
      <None Include="Assets\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
      <None Include="Assets\Light2D\Resources\Shaders\Light70.shader" />
