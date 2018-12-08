@@ -12,6 +12,8 @@ public class GlobalMenuSettings : MonoBehaviour {
 
 	public int level = 1;
 
+	public float volume = 1f;
+
 	void Awake()
     {
 		GameObject[] objs = GameObject.FindGameObjectsWithTag("globalSettings");

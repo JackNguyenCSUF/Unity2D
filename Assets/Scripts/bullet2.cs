@@ -11,18 +11,35 @@ public class bullet2 : MonoBehaviour {
 	private float x;
 	private float y;
 
+	public AudioClip bulletSound;
+
 	//public Flare flare;
 	// Use this for initialization
 	void Start () {
-		rb.velocity = transform.up *  speed;	
+		rb.velocity = transform.up *  speed;
+
+		GetComponent<AudioSource> ().playOnAwake = true;
+
+
+		GetComponent<AudioSource> ().clip = bulletSound;
+
+		GameObject[] objs = GameObject.FindGameObjectsWithTag("globalSettings");
+        GlobalMenuSettings settings = objs[0].GetComponent<GlobalMenuSettings>();
+        
+
+		AudioSource asource = GetComponent<AudioSource>();
+        asource.volume = settings.volume / 3f;
+
+		AudioSource.PlayClipAtPoint(bulletSound, transform.position, settings.volume);
+		//GetComponent<AudioSource> ().Play();	
 	}
 
 	void Update(){
 		timeLeft -= Time.deltaTime;	
 
 		//get the velocity of the bullet
-		float x = Math.Abs(rb.velocity.x);
-		float y = Math.Abs(rb.velocity.y);
+		//float x = Math.Abs(rb.velocity.x);
+		//float y = Math.Abs(rb.velocity.y);
 		
 		//start the 5 second countdown for each individual bullet fired, after 5 seconds object will be destroyed.
 		if(timeLeft <= 0)

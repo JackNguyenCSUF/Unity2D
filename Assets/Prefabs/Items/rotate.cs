@@ -16,7 +16,7 @@ public class rotate : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		x += 1;
-			Quaternion target = Quaternion.Euler(0, 0, x);
+			//Quaternion target = Quaternion.Euler(0, 0, x);
 
         	// Dampen towards the target rotation
         	//transform.rotation = Quaternion.Slerp(transform.rotation, target,  700f);

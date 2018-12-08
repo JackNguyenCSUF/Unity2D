@@ -11,7 +11,7 @@ public class LevelGen : MonoBehaviour {
     
     public int xsize = 16;
     public int ysize = 16;
-    [Range(0,0.3f)] //range for obstaclePercent slider, 0 to 30%
+    [Range(0,0.05f)] //range for obstaclePercent slider, 0 to 30%
     public float obstaclePercent;
     //private bool player1Spawned = false;
 

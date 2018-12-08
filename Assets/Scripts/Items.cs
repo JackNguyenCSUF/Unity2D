@@ -25,7 +25,7 @@ public class Items : MonoBehaviour {
 		if(item.name != null)
 		{
 			x += 1;
-			Quaternion target = Quaternion.Euler(0, 0, x);
+			//Quaternion target = Quaternion.Euler(0, 0, x);
 
         	// Dampen towards the target rotation
         	//transform.rotation = Quaternion.Slerp(transform.rotation, target,  700f);

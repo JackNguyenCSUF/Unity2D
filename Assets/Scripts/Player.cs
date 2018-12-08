@@ -21,11 +21,18 @@ public class Player : MonoBehaviour {
 
 	public int lives;
 
+	private bool colorChange  = false;
+
 	public bool shield = false;
 
 	//create a list for storing items the player picks up
 	public List<String> inventory;
 	public GameObject[] item;
+
+	public GameObject healthBar;
+	public SpriteRenderer sr;
+	private int colorChangeCounter = 0;
+
 	
 	// Use this for initialization
 	void Start () 
@@ -41,8 +48,8 @@ public class Player : MonoBehaviour {
 		playerWeapon.numberBullets = settings.bullets;
 
 		lives = settings.player_lives;
-	
 
+		
 	}
 	 
 	// Update is called once per frame
@@ -52,13 +59,16 @@ public class Player : MonoBehaviour {
 		if(player.name == "player1"){
 			velocityx = Input.GetAxis("p1_Horizontal") * speed;
 			velocityy = Input.GetAxis("p1_Vertical") * speed;
+			healthBar = GameObject.Find("BarSprite1");
+			
+			
 
 		}
 		else if (player.name == "player2"){
 			velocityx = Input.GetAxis("p2_Horizontal") * speed;
 			velocityy = Input.GetAxis("p2_Vertical") * speed;
-
-		}
+			healthBar = GameObject.Find("BarSprite2");
+		}	
 		
 		Vector2 moveVector = new Vector2(velocityx,velocityy);
 		
@@ -73,6 +83,25 @@ public class Player : MonoBehaviour {
 			//Debug.Log(inventory.Count);
 			activateItem(inventory[0],moveVector);		
 		}		
+
+		//revert healthbar back to green
+		if(colorChange){
+			colorChangeCounter++;
+
+			if (colorChangeCounter == 5){
+				colorChangeCounter = 0;
+				Color newColor;
+
+   				newColor.r = 0;
+   				newColor.g = 255;
+   				newColor.b = 0;
+   				newColor.a = 1f;
+
+   				sr.color = newColor;
+				colorChange = false;
+			}
+		}
+		
 	}
 
 	void activateItem(String name,Vector2 moveVector){
@@ -119,13 +148,29 @@ public class Player : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D hitInfo)
 	{	
 		Debug.Log(hitInfo.name);
-
+		sr = healthBar.GetComponent<SpriteRenderer>();
 
 		if(hitInfo.name == "Fire" || hitInfo.name == "Fire(Clone)"){
 			//fire from explosion has made contact with player, reduce health.
 			if(!shield)
 			{
-				health -= 0.3f;
+				if (health == 0 && lives == 0){
+					health = 0.0f;
+				}
+				else
+				{
+					health -= 0.3f;
+					Color newColor;
+
+   					newColor.r = 255;
+   					newColor.g = 0;
+   					newColor.b = 0;
+   					newColor.a = 1f;
+
+   					sr.color = newColor;
+					colorChange = true;
+				
+				}
 			}
 			else if(shield){
 				shield = false;
@@ -136,9 +181,26 @@ public class Player : MonoBehaviour {
 		//inflict damage of flare on corresponding player
 		//prevent players own flare from doing damage to himself.
 		if((hitInfo.name == "newFlare 1(Clone)" && player.name == "player1" ) || (hitInfo.name == "newFlare(Clone)" && player.name == "player2")  ){
+			GameObject bullet = GameObject.Find(hitInfo.name);
+			Rigidbody2D rb2d = bullet.GetComponent<Rigidbody2D>();
+
 			//do damage to player2
 			if(shield == false){
-				health -= 0.20f;
+				//Debug.Log( rb2d.velocity);
+				health -= 0.30f;
+				Color newColor;
+
+   				newColor.r = 255;
+   				newColor.g = 0;
+   				newColor.b = 0;
+   				newColor.a = 1f;
+
+   				sr.color = newColor;
+				colorChange = true;
+
+				//destroy the bullet if collides with players
+				bullet.name = "unusedBullet";
+
 			}
 			else if(shield){
 				shield = false;
@@ -151,6 +213,10 @@ public class Player : MonoBehaviour {
 				lives -= 1;
 				health = 1f;		
 		}		
+		
+		if(lives == 0){
+			health = 0.0f;
+		}
 
 		
 	}

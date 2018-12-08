@@ -9,6 +9,12 @@ public class explosion : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//Debug.Log("explosion triggered");
+		GameObject[] objs = GameObject.FindGameObjectsWithTag("globalSettings");
+        GlobalMenuSettings settings = objs[0].GetComponent<GlobalMenuSettings>();
+        
+		AudioSource asource = GetComponent<AudioSource>();
+        asource.volume = settings.volume * 1.2f;
+
 		
 	}
 	

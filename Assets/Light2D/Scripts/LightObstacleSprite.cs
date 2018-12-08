@@ -83,7 +83,7 @@ namespace Light2D
                         Sprite = _oldUnitySprite.sprite;
                 }
 
-                Material.EnableKeyword("NORMAL_TEXCOORD");
+                //Material.EnableKeyword("NORMAL_TEXCOORD");
             }
 
             if (_oldSecondaryColor != AdditiveColor || forceUpdate)
